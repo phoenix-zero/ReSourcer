@@ -12,25 +12,50 @@ void fileParser(std::string input, std::string output)
 
   outp.seekp(0);
   outp << parseFile(inp);
-  //outp.flush();
+  outp.flush();
   inp.close();
   outp.close();
 }
 
+std::string readFile(std::string path)
+{
+  std::fstream ifs(path,std::ios_base::in|std::ios_base::binary);
+  std::string s((std::istreambuf_iterator<char>(ifs)),(std::istreambuf_iterator<char>()));
+  ifs.close();
+  std::stringstream ss;
+  for(size_t i=0; i<s.length(); ++i)
+      ss << std::hex << "0x" <<int(s[i]) << ",";
+  s = ss.str();
+  return s;
+}
+
 std::string parseFile(std::fstream& input)
 {
-  using boost::property_tree::ptree;
-  ptree pt;
+  boost::property_tree::ptree pt;
   read_xml(input, pt);
-  std::string ans;
+  std::string key, value, ans, data;
 
-  for( ptree::value_type const& v: pt.get_child("RCC") )
+  ans = "#include<vector>\n#include<string>\n#include<map>\nstd::vector<unsigned> __RCC__data__store__(std::string id)"
+      "{\nstatic std::map<std::string,std::vector<unsigned>> _m_map({";
+
+  for( boost::property_tree::ptree::value_type const& v: pt.get_child("RCC") )
   {
     if( v.first == "data" )
     {
-      std::cout << v.second.data().data();
-      std::cout << v.second.get("<xmlattr>.path", "string");
+      value = v.second.data().data();
+      key = v.second.get("<xmlattr>.path", "string");
+      if(value=="") continue;
+      if(key=="") key = value;
+      data=readFile(value);
+      ans += "{\"" + key + "\",{" + data + "}},";
     }
   }
-  return "";
+  ans +="}); return _m_map[id]; }";
+
+/* basic template for the resource */
+//  std::map<std::string, std::vector<int>> map({
+//    {"hello",{3,4,6,7,}},
+//  });
+
+  return ans;
 }

@@ -6,10 +6,13 @@
 
 class ReSourcer
 {
+  ReSourcer();
 
 public:
-  ReSourcer();
-  static std::vector<unsigned> getItem(std::string);
+  static std::vector<char> getItem(std::string id);
+  static std::string getItemText(std::string id);
+  static size_t itemSize(std::string id);
+  static void *rawItem(std::string id);
 };
 
 #endif // RESOURCER_HPP

@@ -4,6 +4,7 @@
 std::pair<std::string,std::string> optionParser(int argc, char** argv)
 {
     namespace proptions = boost::program_options;
+    if(argc==1) exit(-1);
     std::string in, out;
     try
     {

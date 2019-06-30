@@ -1,0 +1,2 @@
+Hello World
+This RCC and Resource Library are working :-)

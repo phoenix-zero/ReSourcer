@@ -43,14 +43,14 @@ make
 
 > Note: The build system can be improved a lot, working on that.
 
- [x] Done
+- [x] Done
 
 ## Features and support
-[x] ReSourcer is tested with both binary and text files
+- [x] ReSourcer is tested with both binary and text files
 
-[] Files are kept by id, path no supported yet
+- [ ] Files are kept by id, path no supported yet
 
-[] Needs an internal file handler, to handle both resource files and external files
+- [ ] Needs an internal file handler, to handle both resource files and external files
 
 ## Example
 

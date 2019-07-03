@@ -2,7 +2,7 @@
 #include <map>
 #include <string>
 
-extern std::map<std::string,std::vector<char>> __RCC__DATA__STORE__;
+extern std::map<std::string,std::vector<char> > __RCC__DATA__STORE__;
 
 ReSourcer::ReSourcer()
 {

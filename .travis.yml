@@ -8,9 +8,11 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - sourceline: 'ppa:mhier/libboost-latest'
     packages:
       - gcc-8
       - g++-8
+      - libboost-dev
       - qt5-qmake
 script:
   - export CC=/usr/bin/gcc-8

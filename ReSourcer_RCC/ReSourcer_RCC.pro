@@ -3,6 +3,8 @@ CONFIG += console c++17
 CONFIG -= app_bundle
 CONFIG -= qt
 
+INCLUDEPATH += /usr/local/include /usr/include
+
 SOURCES += \
         argumentParser.cpp \
         fileparsers.cpp \

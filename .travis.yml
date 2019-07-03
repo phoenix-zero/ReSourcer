@@ -12,7 +12,7 @@ addons:
     packages:
       - gcc-8
       - g++-8
-      - libboost1.70-all-dev
+      - libboost-dev
       - qt5-qmake
 script:
   - export CC=/usr/bin/gcc-8

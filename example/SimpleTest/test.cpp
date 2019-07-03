@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../ReSourcer_Lib/resourcer.hpp"
+#include <resourcer.hpp>
 #ifdef GRAPHIC
 #include <SFML/Graphics.hpp>
 #endif

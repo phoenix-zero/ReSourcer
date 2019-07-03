@@ -39,7 +39,7 @@ make
 
 - Copy resourcer.hpp to /usr/local/include
 - Copy libReSourcer_Lib.a to /usr/local/lib
-- Copy ReSourcer (executable) to /usr/local/bin
+- Copy ReSourcer_RCC (executable) to /usr/local/bin
 
 > Note: The build system can be improved a lot, working on that.
 
@@ -54,15 +54,26 @@ make
 
 ## Example
 
-In example folder, you can
+In example folder, you can find
+
+- SimpleTest
 ```bash
 # For graphical version
-gcc resource.cpp test.cpp -lsfml-graphics -lsfml-window -lsfml-system -lReSourcer_Lib -DGRAPHIC -o test
-./test
+make graphic=-DGRAPHIC incsLoc=/usr/local/include linksLoc=/usr/local/lib rccLoc=/usr/local/bin
 # For text version 
-gcc resource.cpp test.cpp -lReSourcer_Lib -o test
-./test
+make incsLoc=/usr/local/include linksLoc=/usr/local/lib rccLoc=/usr/local/bin
+./exec
 ```
+
+- NQueen
+```bash
+make incsLoc=/usr/local/include linksLoc=/usr/local/lib rccLoc=/usr/local/bin
+./exec
+```
+
+> Both the examples, run the RCC to compile *.rcc into *.cpp files. ReSourcer_RCC uses -o tag for output and -i (positional) tag for input
+> Example "ReSourcer_RCC res.rcc -o res.cpp" produces res.cpp from res.rcc
+
 
 ## Documentation comming soon
 

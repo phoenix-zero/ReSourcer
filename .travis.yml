@@ -4,6 +4,10 @@ language:
   - cpp
 compiler:
   - gcc
+before_install:
+  - sudo add-apt-repository -y ppa:mhier/libboost-latest
+  - sudo apt update
+  - sudo apt install -y libboost-all-dev
 addons:
   apt:
     sources:
@@ -12,7 +16,7 @@ addons:
     packages:
       - gcc-8
       - g++-8
-      - libboost1.70-all-dev
+      - boost1.70
       - qt5-qmake
 script:
   - export CC=/usr/bin/gcc-8
@@ -20,4 +24,4 @@ script:
   - gcc -v && g++ -v && qmake --version
   - mkdir build && cd build
   - qmake ..
-  #- make
+  - make

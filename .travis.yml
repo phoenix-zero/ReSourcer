@@ -5,7 +5,7 @@ language:
 compiler:
   - gcc
 before_install:
-  - sudo apt install -y libboost-dev
+  - sudo apt install -y libboost-all-dev
 addons:
   apt:
     sources:

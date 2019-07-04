@@ -4,6 +4,8 @@ language:
   - cpp
 compiler:
   - gcc
+before_install:
+  - sudo apt install -y libboost-dev
 addons:
   apt:
     sources:

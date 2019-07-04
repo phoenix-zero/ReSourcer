@@ -5,7 +5,9 @@ language:
 compiler:
   - gcc
 before_install:
-  - sudo apt install -y libboost-all-dev
+  - sudo add-apt-repository ppa:mhier/libboost-latest
+  - sudo apt update
+  - sudo apt install -y libboost
 addons:
   apt:
     sources:

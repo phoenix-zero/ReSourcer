@@ -1,4 +1,4 @@
 <RCC>
-	<data path="text">text.txt</data>
-	<data path="img">img.png</data>
+	<file id="text">text.txt</data>
+	<file id="img">img.png</data>
 </RCC>

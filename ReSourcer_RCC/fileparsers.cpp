@@ -21,6 +21,11 @@ void fileParser(std::string input, std::string output)
 std::string readFile(std::string path)
 {
       std::fstream ifs(path,std::ios_base::in|std::ios_base::binary);
+      if(!ifs)
+      {
+          std::cerr << "Error opening " << path << std::endl;
+          exit(0);
+      }
       std::string s((std::istreambuf_iterator<char>(ifs)),(std::istreambuf_iterator<char>()));
       ifs.close();
       std::stringstream ss;
@@ -42,10 +47,10 @@ std::string parseFile(std::fstream& input)
 
     for( boost::property_tree::ptree::value_type const& v: pt.get_child("RCC") )
     {
-        if( v.first == "data" )
+        if( v.first == "file" )
         {
             value = v.second.data().data();
-            key = v.second.get("<xmlattr>.path", "string");
+            key = v.second.get("<xmlattr>.id", "string");
             if(value=="") continue;
             if(key=="") key = value;
             data=readFile(value);

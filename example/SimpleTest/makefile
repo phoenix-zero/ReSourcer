@@ -4,10 +4,14 @@ rccLoc=..
 graphic=
 CC=g++
 
+ifneq ($(graphic),)
+graphicS := `pkg-config --libs sfml-all`
+endif
+
 all: exec
 
 exec:	resource.o test.o
-	$(CC) resource.o test.o -L$(linksLoc) -lReSourcer_Lib `pkg-config --libs sfml-all` -o exec
+	$(CC) resource.o test.o -L$(linksLoc) -lReSourcer_Lib $(graphicS) -o exec
 
 test.o: test.cpp
 	$(CC) -c test.cpp -I$(incsLoc) $(graphic)  

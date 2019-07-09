@@ -56,6 +56,17 @@ std::string parseFile(std::fstream& input)
             data=readFile(value);
             ans += "{\"" + key + "\",{" + data + "}},";
         }
+        else if( v.first == "data")
+        {
+            value = v.second.data().data();
+            key = v.second.get("<xmlattr>.id", "string");
+            if(key=="") continue;
+            std::stringstream ss;
+            for(size_t i=0; i<value.length(); ++i)
+                ss << std::hex << "0x" <<int(uint8_t(value[i])) << ",";
+            data = ss.str();
+            ans += "{\"" + key + "\",{" + data + "}},";
+        }
     }
     ans +="});";
 

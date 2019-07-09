@@ -1,4 +1,5 @@
 <RCC>
-	<file id="text">text.txt</data>
-	<file id="img">img.png</data>
+	<file id="text">text.txt</file>
+	<file id="img">img.png</file>
+	<data id="inline">Hello World</data>
 </RCC>

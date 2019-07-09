@@ -8,6 +8,7 @@ int main()
 {
 #ifndef GRAPHIC
 	std::cout << ReSourcer::getItemText("text");
+	std::cout << ReSourcer::getItemText("inline");
 #else
 	sf::RenderWindow win(sf::VideoMode(600,600),"HelloWorld");
 	sf::Event e;

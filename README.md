@@ -1,5 +1,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://travis-ci.com/phoenix-zero/ReSourcer.svg?branch=master)](https://travis-ci.com/phoenix-zero/ReSourcer)
+
 [![Travis Status](https://img.shields.io/travis/com/phoenix-zero/ReSourcer/master.svg?label=tests&logo=travis&style=popout-square)](https://travis-ci.com/phoenix-zero/ReSourcer)
 
 # ReSourcer
